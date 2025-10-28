@@ -1,0 +1,394 @@
+/* Variables CSS para colores y efectos */
+:root {
+  --primary-color: #667eea;
+  --primary-dark: #5a67d8;
+  --secondary-color: #764ba2;
+  --accent-color: #f093fb;
+  --success-color: #48bb78;
+  --danger-color: #f56565;
+  --warning-color: #ed8936;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-light: #718096;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f7fafc;
+  --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.1);
+  --border-radius: 16px;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Reset y estilos base */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #ffffff;
+  min-height: 100vh;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Contenedor principal con animación de entrada */
+.profile-container {
+  max-width: 600px;
+  margin: 2rem auto;
+  font-family: 'Times New Roman', Times, serif;
+  padding: 2.5rem;
+  background: var(--bg-primary);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-xl);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  overflow: hidden;
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* Efecto de fondo decorativo */
+.profile-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--bg-gradient);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+/* Animación de entrada */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Título con estilo moderno */
+.profile-container h2 {
+  font-size: 2rem;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 2rem;
+  position: relative;
+  background: var(--bg-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.profile-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background: var(--bg-gradient);
+  border-radius: 2px;
+}
+
+/* Etiquetas con estilo mejorado */
+.profile-container label {
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: var(--transition);
+}
+
+.profile-container label:hover {
+  color: var(--primary-color);
+}
+
+/* Inputs con diseño moderno */
+.profile-container input {
+  width: 100%;
+  color: #3333332c;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  outline: none;
+  transition: var(--transition);
+  font-size: 1rem;
+  background: var(--bg-secondary);
+  font-family: 'Inter', sans-serif;
+  position: relative;
+}
+
+.profile-container input:focus {
+  border-color: var(--primary-color);
+  background: var(--bg-primary);
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.profile-container input:hover {
+  border-color: #cbd5e0;
+  transform: translateY(-1px);
+}
+
+/* Campos en modo lectura con estilo mejorado */
+.profile-container p {
+  padding: 14px 16px;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-container p::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: left 0.5s;
+}
+
+.profile-container p:hover::before {
+  left: 100%;
+}
+
+.profile-container p:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Espaciado entre campos */
+.profile-container .field {
+  margin-bottom: 1.5rem;
+  animation: fadeInUp 0.5s ease-out;
+}
+
+.profile-container .field:nth-child(2) { animation-delay: 0.1s; }
+.profile-container .field:nth-child(3) { animation-delay: 0.2s; }
+.profile-container .field:nth-child(4) { animation-delay: 0.3s; }
+.profile-container .field:nth-child(5) { animation-delay: 0.4s; }
+.profile-container .field:nth-child(6) { animation-delay: 0.5s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Botones con diseño moderno */
+.profile-container .btn {
+  padding: 12px 24px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+.profile-container .btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.profile-container .btn:hover::before {
+  left: 100%;
+}
+
+.profile-container .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.profile-container .btn:active {
+  transform: translateY(0);
+}
+
+/* Botón editar */
+.profile-container .btn-edit {
+  background: var(--bg-gradient);
+  color: white;
+}
+
+.profile-container .btn-edit:hover {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-color) 100%);
+}
+
+/* Botón guardar */
+.profile-container .btn-save {
+  background: linear-gradient(135deg, var(--success-color) 0%, #38a169 100%);
+  color: white;
+}
+
+.profile-container .btn-save:hover {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+}
+
+/* Botón cancelar */
+.profile-container .btn-cancel {
+  background: linear-gradient(135deg, var(--danger-color) 0%, #e53e3e 100%);
+  color: white;
+}
+
+.profile-container .btn-cancel:hover {
+  background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+}
+
+/* Botones alineados con flexbox mejorado */
+.profile-container .actions {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .profile-container {
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+  
+  .profile-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .profile-container .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .profile-container .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Efectos de hover adicionales */
+.profile-container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Animación de carga */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.profile-container.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+/* Efecto de focus mejorado para accesibilidad */
+.profile-container input:focus-visible,
+.profile-container .btn:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Scrollbar personalizada */
+.profile-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.profile-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.profile-container::-webkit-scrollbar-thumb {
+  background: var(--bg-gradient);
+  border-radius: 4px;
+}
+
+.profile-container::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.menu-container {
+  position: relative;
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #5a4fcf;
+}
+
+.menu-dropdown {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  background: white;
+  border: 1px solid #5a4fcf;
+  border-radius: 6px;
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-dropdown button {
+  padding: 15px;
+  background: none;
+  color: black;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-dropdown button:hover {
+  background: #978dff2a;
+}

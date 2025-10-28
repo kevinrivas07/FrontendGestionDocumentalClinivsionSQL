@@ -1,0 +1,260 @@
+/* 🌐 Contenedor principal */
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  margin-top: 150px;
+  min-height: 100vh;
+  background: white;
+  background-attachment: fixed;
+  animation: bgFloat 16s ease-in-out infinite;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.home-container::before {
+  content: "";
+  position: fixed;
+  inset: -20vmax;
+  background: white;
+  filter: blur(20px);
+  z-index: -1;
+  animation: glowDrift 22s ease-in-out infinite alternate;
+}
+
+/* Imagen decorativa ahora va dentro del contenido, no como fondo */
+
+/* 📌 Contenido principal */
+.main-content {
+  text-align: center;
+  background: rgb(255, 255, 255);
+  backdrop-filter: saturate(120%) blur(10px);
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+  padding: 2rem 3rem;
+  border-radius: 18px;
+  border: 1px solid rgb(255, 255, 255);
+  box-shadow: 0 10px 28px rgba(2, 8, 23, 0.12), 0 2px 6px rgba(2, 8, 23, 0.06);
+  max-width: 760px;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 600ms ease-out both;
+}
+
+.home-hero-img {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 0 auto 1.25rem;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.12);
+  object-fit: cover;
+}
+
+.main-content:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(2, 8, 23, 0.16), 0 4px 10px rgba(2, 8, 23, 0.08);
+}
+
+/* 🏥 Títulos */
+.sidebar-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #1a202c, #2b6cb0, #2f855a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 0.5rem;
+}
+
+.welcome-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.2px;
+  position: relative;
+}
+
+.welcome-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
+  width: 64px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #4299e1, #48bb78);
+}
+
+.welcome-subtitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #4a5568;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* ⚡ Acceso rápido */
+.quick-access {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 🎴 Tarjetas */
+.card {
+  background: linear-gradient(#f9fafb, #f9fafb) padding-box,
+    linear-gradient(135deg, rgba(66, 153, 225, 0.5), rgba(72, 187, 120, 0.5)) border-box;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  padding: 1.6rem 1.2rem;
+  width: 230px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.card:hover {
+  background: linear-gradient(#ffffff, #f7fafc) padding-box,
+    linear-gradient(135deg, rgba(66, 153, 225, 0.7), rgba(72, 187, 120, 0.7)) border-box;
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 14px 26px rgba(0, 0, 0, 0.16);
+}
+
+.card:active {
+  transform: translateY(-2px) scale(0.99);
+}
+
+.card::after {
+  /* brillo dinámico */
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -60%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent 0%, rgba(255, 255, 255, 0.6) 50%, transparent 100%);
+  transform: skewX(-20deg);
+  transition: transform 0.6s ease;
+}
+
+.card:hover::after {
+  transform: translateX(260%) skewX(-20deg);
+}
+
+/* 📂 Iconos */
+.card-icon {
+  margin-bottom: 0.8rem;
+  filter: drop-shadow(0 2px 2px rgba(0, 0, 0, 0.08));
+}
+
+.card-icon.blue {
+  color: #3182ce;
+}
+
+.card-icon.green {
+  color: #38a169;
+}
+
+.card:hover .card-icon {
+  animation: iconPop 600ms ease;
+}
+
+/* 📝 Texto de la tarjeta */
+.card p {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #2d3748;
+  margin: 0;
+}
+
+/* 🚪 Botón cerrar sesión */
+.logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 24px auto 0;
+  padding: 12px 20px;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  background: linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(239, 68, 68, 0.7), rgba(220, 38, 38, 0.7)) border-box;
+  color: #1a202c;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+  font-size: 14px;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.2);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+/* 🎞️ Animaciones */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bgFloat {
+  0% {
+    background-position: 0% 50%, 100% 50%, 0% 0%;
+  }
+  50% {
+    background-position: 50% 50%, 50% 50%, 100% 100%;
+  }
+  100% {
+    background-position: 0% 50%, 100% 50%, 0% 0%;
+  }
+}
+
+@keyframes glowDrift {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(2%, -2%, 0) scale(1.04);
+  }
+}
+
+@keyframes iconPop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* ♿ Accesibilidad: respeta usuarios con "reduced motion" */
+@media (prefers-reduced-motion: reduce) {
+  .home-container,
+  .home-container::before,
+  .main-content,
+  .card,
+  .card::after,
+  .card:hover .card-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+}

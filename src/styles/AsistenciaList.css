@@ -1,0 +1,123 @@
+.alist-wrap {
+  padding: 22px;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.alist-wrap h2 {
+  margin: 0 0 14px;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  background: linear-gradient(90deg, #1a202c, #2b6cb0, #2f855a);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.alist-empty {
+  color: #4a5568;
+  background: #f7fafc;
+  border: 1px dashed #e2e8f0;
+  padding: 14px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.alist-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alist-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #edf2f7;
+  border-radius: 12px;
+  background: #f9fafb;
+  transition: box-shadow .2s ease, transform .2s ease, background .2s ease;
+}
+
+.alist-item:hover {
+  background: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+}
+
+.alist-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.alist-topic {
+  color: #1a202c;
+  font-weight: 800;
+}
+
+.alist-date {
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.download-btn {
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, rgba(66, 153, 225, .7), rgba(72, 187, 120, .7)) border-box;
+  color: #1a202c;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .1s ease, box-shadow .2s ease;
+}
+
+.download-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .12);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+/* boton volver */
+.back {
+  padding: 8px 12px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, rgba(66, 153, 225, .7), rgba(72, 187, 120, .7)) border-box;
+  color: #1a202c;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .1s ease, box-shadow .2s ease;
+}
+
+.back:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, .12);
+}
+
+.back:active {
+  transform: translateY(0);
+}
+
+@media (max-width: 640px) {
+  .alist-item {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+}
