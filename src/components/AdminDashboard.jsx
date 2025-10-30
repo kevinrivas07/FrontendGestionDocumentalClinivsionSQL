@@ -410,7 +410,9 @@ const AdminDashboard = () => {
                       <td>{a.tema}</td>
                       <td>{a.responsable}</td>
                       <td>{a.sede}</td>
-                      <td>{a.creadoPor?.username || "Sin usuario"}</td>
+                      <td>{a.usuarioCreador ? a.usuarioCreador.username : "Sin usuario"}</td>
+
+
                       <td>
                         <button
                           onClick={() => descargarPDF(a.id)}

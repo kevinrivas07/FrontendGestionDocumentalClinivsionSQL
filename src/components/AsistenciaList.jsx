@@ -69,7 +69,7 @@ export default function AsistenciaList() {
                 <span className="alist-date">{formatDate(a.fecha)}</span>
                 {a.creadoPor && (
                   <small className="alist-user">
-                    👤 {a.creadoPor.username || "Desconocido"}
+                    👤 {a.usuarioCreador.username || "Desconocido"}
                   </small>
                 )}
               </div>
