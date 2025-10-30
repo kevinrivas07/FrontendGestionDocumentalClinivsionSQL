@@ -131,8 +131,10 @@ export default function AsistenciaForm() {
           <input type="text" name="cargo" placeholder="Cargo" value={form.cargo} onChange={handleChange} />
           <input type="text" name="modalidad" placeholder="Modalidad" value={form.modalidad} onChange={handleChange} />
           <input type="text" name="sede" placeholder="Sede" value={form.sede} onChange={handleChange} />
+          <div className="horas">
           <a className="hour">Hora inicio</a><input type="time" name="horaInicio" value={form.horaInicio} placeholder="Hora inicio" onChange={handleChange} />
           <a className="hour">Hora Fin</a><input type="time" name="horaFin" value={form.horaFin} placeholder="Hora fin" onChange={handleChange} />
+        </div>
         </div>
 
         <h3>👥 Asistentes</h3>
