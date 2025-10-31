@@ -132,9 +132,11 @@ export default function AsistenciaForm() {
           <input type="text" name="modalidad" placeholder="Modalidad" value={form.modalidad} onChange={handleChange} />
           <input type="text" name="sede" placeholder="Sede" value={form.sede} onChange={handleChange} />
           <div className="horas">
-          <a className="hour">Hora inicio</a><input type="time" name="horaInicio" value={form.horaInicio} placeholder="Hora inicio" onChange={handleChange} />
-          <a className="hour">Hora Fin</a><input type="time" name="horaFin" value={form.horaFin} placeholder="Hora fin" onChange={handleChange} />
-        </div>
+            <span className="hour">Hora inicio</span>
+            <input type="time" name="horaInicio" value={form.horaInicio} onChange={handleChange} />
+            <span className="hour">Hora Fin</span>
+            <input type="time" name="horaFin" value={form.horaFin} onChange={handleChange} />
+          </div>
         </div>
 
         <h3>👥 Asistentes</h3>
@@ -192,7 +194,7 @@ export default function AsistenciaForm() {
           </div>
         </div>
       )}
-      <a href="" target="" className="created">Created by: Kevin Rivas</a>
+      <a href="" target="" className="created-asist">Created by: Kevin Rivas</a>
     </div>
   );
 }

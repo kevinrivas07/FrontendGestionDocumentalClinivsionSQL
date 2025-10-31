@@ -8,6 +8,7 @@
     box-sizing: border-box;
 }
 
+
 /* Scroll personalizado */
 .asistencia-wrap::-webkit-scrollbar {
     width: 6px;
@@ -99,7 +100,7 @@
   color: #333;
   font-size: 14px;
   font-weight: 600;
-  margin-right: 8px; /* pequeño espacio entre el texto y el input */
+  margin-right: 8px;
   white-space: nowrap;
 }
 
@@ -107,11 +108,11 @@
 .horas {
   display: flex;
   align-items: center;
-  gap: 16px; /* espacio entre “hora inicio” y “hora fin” */
+  gap: 16px;
+  grid-column: 1 / -1;
 }
 
-
-/* Grid para campos principales - MÁS COMPACTO */
+/* Grid para campos principales - RESPONSIVE */
 .fila-datos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -163,7 +164,7 @@ h3 {
     font-weight: 700;
 }
 
-/* LISTA DE ASISTENTES CON SCROLL INTERNO - MÁS COMPACTO */
+/* LISTA DE ASISTENTES CON SCROLL INTERNO */
 .asistentes-list {
     margin-top: 16px;
     max-height: 400px;
@@ -244,7 +245,7 @@ h3 {
     box-shadow: 0 0 0 2px rgba(72, 187, 120, .2);
 }
 
-/* SECCIÓN FIRMAS MÁS COMPACTA */
+/* SECCIÓN FIRMAS */
 .firma-controls {
     display: flex;
     flex-direction: column;
@@ -423,13 +424,33 @@ h3 {
     text-decoration: none;
 }
 
-/* RESPONSIVE MEJORADO */
-@media (max-width: 768px) {
+/* RESPONSIVE MEJORADO - MANTENIENDO TUS ESTILOS */
+@media (max-width: 1024px) {
     .asistencia-wrap {
         padding: 16px;
         max-height: none;
-        overflow-y: visible;
+        margin-top: 470px;
+        
     }
+    .created{
+        color: red;
+    }
+    
+    .fila-datos {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+    
+    .asistente-row .cols {
+        grid-template-columns: auto 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .asistencia-wrap {
+        padding: 12px;
+        margin-top: 470px;
+    }
+    
     
     .asistencia-wrap h2 {
         position: static;
@@ -439,6 +460,12 @@ h3 {
     .fila-datos {
         grid-template-columns: 1fr;
         gap: 10px;
+    }
+    
+    .horas {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
     }
     
     .asistente-row {
@@ -482,8 +509,8 @@ h3 {
     }
     
     .firma-box {
-        min-width: auto;
         margin: 0 10px;
+        padding: 16px;
     }
     
     .home-img {
@@ -493,13 +520,14 @@ h3 {
 
 @media (max-width: 480px) {
     .asistencia-wrap {
-        padding: 12px;
-        margin-top: 550px;
+        padding: 8px;
+        margin-top: 470px;
     }
     
     .asistencia-form {
         padding: 16px;
     }
+    
     
     .asistente-row {
         padding: 10px;
@@ -507,13 +535,99 @@ h3 {
     
     .controls {
         flex-direction: column;
+        gap: 8px;
+    }
+    
+    .controls button {
+        width: 100%;
     }
     
     .f-buttons {
         flex-direction: column;
+        gap: 6px;
+    }
+    
+    .f-buttons button {
+        width: 100%;
     }
     
     .modal-controls {
         flex-direction: column;
+        gap: 8px;
+    }
+    
+    .modal-controls button {
+        width: 100%;
+    }
+    
+    .firma-box {
+        padding: 12px;
+    }
+    
+    .sigCanvas {
+        height: 100px !important;
+    }
+}
+
+/* Para tablets en orientación horizontal */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+    .asistentes-list {
+        max-height: 300px;
+    }
+    
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 360px) {
+    .asistencia-wrap {
+        padding: 6px;
+        margin-top: 550px;
+    }
+    
+    .asistencia-form {
+        padding: 12px;
+    }
+    
+    .f-buttons button {
+        padding: 8px 6px;
+        font-size: 11px;
+    }
+    
+    .controls button {
+        padding: 12px 8px;
+        font-size: 13px;
+    }
+}
+
+.created-asist {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  color: #718096;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-weight: 500;
+  background: transparent; /* opcional */
+}
+
+
+@media (max-width: 768px) {
+    .created-asist {
+        bottom: 8px;
+        position:relative;
+        left: 8px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 480px) {
+    .created-asist {
+        bottom: 6px;
+        position:relative;
+        left: 6px;
+        font-size: 10px;
+        padding: 4px 8px;
     }
 }
