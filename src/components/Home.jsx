@@ -43,10 +43,10 @@ const Home = () => {
           </div>
 
           {/* Registrar nueva entrega de dotación */}
-          <div className="card" onClick={() => navigate("/dotaciones")}>
+          {/*<div className="card" onClick={() => navigate("/dotaciones")}>
             <FaFileAlt size={32} className="card-icon blue" />
             <p>➕ Entrega Dotación</p>
-          </div>
+          </div>*/}
 
           {/* Ver listas guardadas */}
           <div className="card" onClick={() => navigate("/asistencias")}>
@@ -55,10 +55,10 @@ const Home = () => {
           </div>
         
          {/* Ver listas dotaciones */}
-          <div className="card" onClick={() => navigate("/dotaciones-list")}>
+          {/*<div className="card" onClick={() => navigate("/dotaciones-list")}>
             <FaClipboardList size={32} className="card-icon green" />
             <p>📂 Ver Dotaciones Guardadas</p>
-          </div>
+          </div>*/}
           </div>
 
         <button className="logout-btn" onClick={handleLogout}>

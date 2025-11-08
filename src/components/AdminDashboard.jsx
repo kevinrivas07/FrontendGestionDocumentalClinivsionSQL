@@ -215,12 +215,12 @@ const AdminDashboard = () => {
           >
             📋 Asistencias registradas
           </button>
-          <button
+          {/*<button
             className={`nav-btn ${view === "dotaciones" ? "active" : ""}`}
             onClick={() => setView("dotaciones")}
           >
-            📦 Dotaciones registradas
-          </button>
+           {} 📦 Dotaciones registradas
+          </button>*/}
           <button onClick={handleLogout} className="logout-btn">
             🚪 Cerrar sesión
           </button>
@@ -429,7 +429,7 @@ const AdminDashboard = () => {
           </section>
         )}
 
-        {/* 🔹 Dotaciones */}
+        {/* 🔹 Dotaciones 
         {view === "dotaciones" && (
           <section className="dashboard-section">
             <h2>📦 Dotaciones Registradas</h2>
@@ -477,7 +477,7 @@ const AdminDashboard = () => {
               </table>
             )}
           </section>
-        )}
+        )}*/}
       </div>
 
       <a href="#" target="_blank" className="created">
