@@ -1,123 +1,473 @@
+/* 🌐 Contenedor principal */
 .alist-wrap {
-  padding: 22px;
-  max-width: 900px;
-  margin: 0 auto;
+  padding: 1rem;
+  background: transparent;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  margin-top: 0;
+  box-sizing: border-box;
 }
 
-.alist-wrap h2 {
-  margin: 0 0 14px;
-  font-size: 26px;
+/* 📌 Contenedor del listado */
+.alist-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: saturate(120%) blur(20px);
+  -webkit-backdrop-filter: saturate(120%) blur(20px);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 2rem);
+  overflow: hidden;
+}
+
+/* 🖼️ Imagen - EXACTAMENTE COMO LA TENÍAS */
+.home-hero-img {
+  width: 100%;
+  display: block;
+  max-width: 480px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.1);
+  object-fit: cover;
+}
+
+/* 🏥 Header */
+.alist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e2e8f0;
+  flex-shrink: 0;
+  gap: 1rem;
+}
+
+.alist-header h2 {
+  font-size: 1.8rem;
   font-weight: 800;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
   background: linear-gradient(90deg, #1a202c, #2b6cb0, #2f855a);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-.alist-empty {
-  color: #4a5568;
-  background: #f7fafc;
-  border: 1px dashed #e2e8f0;
-  padding: 14px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.alist-list {
-  list-style: none;
-  padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex: 1;
 }
 
-.alist-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px;
-  border: 1px solid #edf2f7;
-  border-radius: 12px;
-  background: #f9fafb;
-  transition: box-shadow .2s ease, transform .2s ease, background .2s ease;
+/* 🔘 Botón volver */
+.back-btn {
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background: linear-gradient(135deg, #e2e8f0, #cbd5e0);
+  color: #4a5568;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 14px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
-.alist-item:hover {
-  background: #ffffff;
+.back-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, .08);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #cbd5e0, #a0aec0);
+  color: #2d3748;
 }
 
-.alist-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+/* 📊 Contador */
+.alist-counter {
+  background: #f7fafc;
+  padding: 8px 16px;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+  border: 1px solid #e2e8f0;
+  flex-shrink: 0;
 }
 
+.alist-counter span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+}
+
+/* 📱 Contenido principal con scroll */
+.alist-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.5rem 0.25rem;
+}
+
+/* Scroll personalizado */
+.alist-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.alist-content::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.alist-content::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.alist-content::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 📊 Contenedor de tabla con scroll */
+.alist-table-container {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: white;
+  margin-bottom: 1rem;
+}
+
+.alist-table-container::-webkit-scrollbar {
+  height: 6px;
+}
+
+.alist-table-container::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+/* 📊 Tabla */
+.alist-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  min-width: 700px;
+}
+
+.alist-table thead {
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: white;
+  position: sticky;
+  top: 0;
+}
+
+.alist-table th {
+  padding: 1rem 0.75rem;
+  text-align: left;
+  font-weight: 700;
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.alist-table td {
+  padding: 0.875rem 0.75rem;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.9rem;
+  color: #2d3748;
+}
+
+.alist-table tbody tr {
+  transition: all 0.2s ease;
+}
+
+.alist-table tbody tr:hover {
+  background: #f7fafc;
+}
+
+.alist-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* 📝 Estilos de contenido de tabla */
 .alist-topic {
   color: #1a202c;
-  font-weight: 800;
+  font-weight: 700;
+  font-size: 0.95rem;
 }
 
 .alist-date {
   color: #4a5568;
-  font-size: 14px;
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
+.alist-responsable {
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.alist-user {
+  color: #718096;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* 🔘 Botón descargar */
 .download-btn {
   padding: 8px 12px;
-  border-radius: 10px;
+  border-radius: 8px;
   border: 2px solid transparent;
-  background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, rgba(66, 153, 225, .7), rgba(72, 187, 120, .7)) border-box;
-  color: #1a202c;
-  font-weight: 700;
+  background: linear-gradient(135deg, #48bb78, #38a169);
+  color: #ffffff;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform .1s ease, box-shadow .2s ease;
+  transition: all 0.2s ease;
+  font-size: 12px;
+  white-space: nowrap;
 }
 
 .download-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, .12);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(72, 187, 120, 0.3);
+  background: linear-gradient(135deg, #38a169, #2f855a);
 }
 
-.download-btn:active {
-  transform: translateY(0);
+/* 🌀 Estado de carga */
+.alist-loading {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #718096;
 }
 
-/* boton volver */
-.back {
-  padding: 8px 12px;
-  margin: 20px auto;
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e2e8f0;
+  border-left: 4px solid #4299e1;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* 📭 Estado vacío */
+.alist-empty {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #718096;
+  background: #f7fafc;
+  border-radius: 16px;
+  border: 2px dashed #cbd5e0;
+}
+
+.empty-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
   display: block;
+}
+
+.alist-empty p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.create-btn {
+  padding: 12px 24px;
   border-radius: 10px;
   border: 2px solid transparent;
-  background: linear-gradient(#ffffff, #ffffff) padding-box, linear-gradient(135deg, rgba(66, 153, 225, .7), rgba(72, 187, 120, .7)) border-box;
-  color: #1a202c;
-  font-weight: 700;
+  background: linear-gradient(135deg, #4299e1, #3182ce);
+  color: #ffffff;
+  font-weight: 600;
   cursor: pointer;
-  transition: transform .1s ease, box-shadow .2s ease;
+  transition: all 0.2s ease;
+  font-size: 14px;
 }
 
-.back:hover {
+.create-btn:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, .12);
+  box-shadow: 0 8px 16px rgba(66, 153, 225, 0.3);
 }
 
-.back:active {
-  transform: translateY(0);
+/* 🔻 Footer */
+.alist-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid #e2e8f0;
+  flex-shrink: 0;
 }
 
-@media (max-width: 640px) {
-  .alist-item {
+.created {
+  display: block;
+  text-align: center;
+  color: #718096;
+  font-size: 12px;
+  text-decoration: none;
+  padding: 8px 0;
+}
+
+/* 📱 RESPONSIVE MEJORADO */
+@media (max-width: 1024px) {
+  .alist-container {
+    padding: 1.25rem;
+    height: calc(100vh - 1rem);
+  }
+  
+  .alist-header h2 {
+    font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .alist-wrap {
+    padding: 0.5rem;
+  }
+  
+  .alist-container {
+    padding: 1rem;
+    height: calc(100vh - 1rem);
+    border-radius: 12px;
+  }
+  
+  .alist-header {
     flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .alist-header h2 {
+    font-size: 1.4rem;
+  }
+  
+  .back-btn {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  /* Tablas responsive para móviles */
+  .alist-table-container {
+    border: none;
+    background: transparent;
+  }
+  
+  .alist-table {
+    min-width: 100%;
+    display: block;
+  }
+  
+  .alist-table thead {
+    display: none;
+  }
+  
+  .alist-table tbody,
+  .alist-table tr,
+  .alist-table td {
+    display: block;
+    width: 100%;
+  }
+  
+  .alist-table tr {
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 0.75rem;
+    padding: 0.75rem;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .alist-table td {
+    border: none;
+    padding: 0.5rem 0;
+    position: relative;
+    padding-left: 40%;
+    text-align: right;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .alist-table td:last-child {
+    border-bottom: none;
+    justify-content: flex-end;
+  }
+  
+  .alist-table td:before {
+    content: attr(data-label) ": ";
+    position: absolute;
+    left: 0.75rem;
+    width: 35%;
+    text-align: left;
+    font-weight: 700;
+    color: #2d3748;
+    font-size: 0.8rem;
+  }
+  
+  .download-btn {
+    margin-left: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .alist-container {
+    padding: 0.75rem;
+  }
+  
+  .alist-header h2 {
+    font-size: 1.3rem;
+  }
+  
+  .alist-table td {
+    padding-left: 35%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+  }
+  
+  .alist-table td:before {
+    position: static;
+    width: auto;
+    margin-right: auto;
+  }
+  
+  .alist-table td:last-child {
     align-items: stretch;
   }
-
+  
   .download-btn {
     width: 100%;
+    margin-left: 0;
+  }
+  
+  .create-btn {
+    width: 100%;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 360px) {
+  .alist-wrap {
+    padding: 0.25rem;
+  }
+  
+  .alist-container {
+    padding: 0.5rem;
+  }
+  
+  .alist-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .alist-table td {
+    padding-left: 30%;
+  }
+  
+  .alist-table td:before {
+    font-size: 0.75rem;
   }
 }
