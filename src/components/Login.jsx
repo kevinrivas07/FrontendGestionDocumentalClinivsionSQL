@@ -199,13 +199,6 @@ function Login() {
           </form>
 
           {error && <p className="error-message">{error}</p>}
-
-          <p>
-            ¿Olvidaste tu contraseña? <a href="/forgot-password">Recupérala</a>
-          </p>
-          <p>
-            ¿No tienes cuenta? <a href="/register">Regístrate</a>
-          </p>
         </div>
       </div>
 
