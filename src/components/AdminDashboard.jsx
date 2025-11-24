@@ -26,7 +26,7 @@ const AdminDashboard = () => {
 
     fetchUsers();
     fetchAsistencias();
-    fetchDotaciones();
+    /*fetchDotaciones();*/
   }, []);
 
   // 📦 Obtener usuarios
@@ -58,7 +58,7 @@ const AdminDashboard = () => {
   };
 
   // 📦 Obtener dotaciones
-  const fetchDotaciones = async () => {
+  {/*const fetchDotaciones = async () => {
     try {
       const token = localStorage.getItem("token");
       const res = await axios.get("http://localhost:5000/api/dotaciones", {
@@ -69,7 +69,7 @@ const AdminDashboard = () => {
       console.error("❌ Error al obtener dotaciones:", err);
       setDotaciones([]);
     }
-  };
+  };*/}
 
   // ➕ Crear nuevo usuario
   const handleCreateUser = async (e) => {
@@ -338,6 +338,7 @@ const AdminDashboard = () => {
                       className="form-input"
                       required
                     />
+
                     <input
                       type="email"
                       value={editingUser.email}
@@ -352,6 +353,7 @@ const AdminDashboard = () => {
                       required
                     />
                   </div>
+
                   <div className="form-row">
                     <select
                       value={editingUser.role}
@@ -366,7 +368,20 @@ const AdminDashboard = () => {
                       <option value="user">Usuario</option>
                       <option value="admin">Administrador</option>
                     </select>
+                  
+                    <input
+                      type="password"
+                      placeholder="Nueva contraseña (opcional)"
+                      onChange={(e) =>
+                        setEditingUser({
+                          ...editingUser,
+                          password: e.target.value,
+                        })
+                      }
+                      className="form-input"
+                    />
                   </div>
+
                   <div>
                     <button type="submit" className="form-btn">
                       💾 Guardar cambios
@@ -382,6 +397,7 @@ const AdminDashboard = () => {
                 </form>
               </div>
             )}
+
           </section>
         )}
 
